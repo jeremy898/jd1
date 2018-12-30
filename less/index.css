@@ -1,0 +1,248 @@
+/* 在主页index.less中 去引入公共样式base.less */
+/* 定义一些公共的全局变量 */
+* {
+  margin: 0;
+  padding: 0;
+  /* 在移动端给所有元素设置box-sizing:border-box; 让盒模型计算方式固定为 设置的宽高 不会被padding或者border影响 */
+  box-sizing: border-box;
+  /* 在移动端去除一些按住高亮的背景色 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* 禁止页面文字选择 ，此属性不继承，一般加在body上规定整个body的文字都不会自动调整 */
+  -webkit-user-select: none;
+  /* 禁止文字自动调整大小(默认情况下旋转设备的时候文字大小会发生变化)，此属性也不继承，一般加在body上规定整个body的文字都不会自动调整  */
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-size: .14rem;
+  font-family: '微软雅黑';
+}
+a {
+  text-decoration: none;
+  /* 直接在默认a样式设置为666 */
+  color: #666;
+}
+li {
+  list-style: none;
+}
+input {
+  /* input内外边框都去掉 */
+  border: 0;
+  outline: 0;
+}
+img {
+  /* 设置图标标签对齐方式 中线对齐 解决图片距离块级元素3px间距 */
+  vertical-align: middle;
+}
+input,
+button {
+  /* 消除输入框和按钮的原生外观，在iOS上加上这个属性才能给按钮和输入框自定义样式  */
+  -webkit-appearance: none;
+  /* 去掉IOS移除原生控件样式 */
+  -webkit-touch-callout: none;
+}
+/* 写一些公共的样式 */
+.bt {
+  border-top: 1px solid #ccc;
+}
+.bb {
+  border-bottom: 1px solid #ccc;
+}
+.bl {
+  border-left: 1px solid #ccc;
+}
+.br {
+  border-right: 1px solid #ccc;
+}
+/* 公共头部区域的样式 */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* 如果元素和屏幕一样宽  或者 一样 高可以使用vw单位 */
+  width: 100vw;
+  display: flex;
+  z-index: 999;
+}
+#header .icon-logo {
+  display: block;
+  width: 0.8rem;
+  height: 0.45rem;
+  padding: 0.1rem 0.11rem;
+  background-image: url(../images/sprites.png);
+  /* 注意按照背景图的原图宽高 除以2来写  原图是400*400 设置为 200 * 200 */
+  background-size: 2rem 2rem;
+  /* 背景图的定位也是要 除以2来写 0  216px 变成 -108px */
+  background-position: 0 -1.08rem;
+  /* 调整背景图定位原点 参照盒模型的哪个区域 */
+  background-origin: content-box;
+  background-clip: content-box;
+}
+#header form {
+  flex: 1;
+  padding-top: 0.05rem;
+  position: relative;
+}
+#header form .icon-search {
+  position: absolute;
+  left: 0.07rem;
+  top: 0.12rem;
+  width: 0.2rem;
+  height: 0.2rem;
+  background-image: url(../images/sprites.png);
+  background-size: 2rem 2rem;
+  background-position: -0.58rem -1.08rem;
+}
+#header form input {
+  width: 100%;
+  height: 0.35rem;
+  border-radius: 0.175rem;
+  padding-left: 0.3rem;
+  font-size: 0.14rem;
+}
+#header .login {
+  width: 0.5rem;
+  height: 0.45rem;
+  line-height: 0.45rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.14rem;
+}
+/* 轮播图样式 */
+#slide img {
+  /* 轮播图全屏的和屏幕宽度有关可以使用vw */
+  width: 100vw;
+}
+#slide .swiper-pagination-bullet-active {
+  background-color: #fff;
+}
+/* 导航条区域的样式 */
+#nav {
+  padding: .1rem 0;
+}
+#nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+#nav ul li {
+  width: 25%;
+}
+#nav ul li a {
+  display: block;
+  text-align: center;
+}
+#nav ul li a img {
+  width: .4rem;
+  height: .4rem;
+}
+#nav ul li a p {
+  margin: .05rem 0;
+}
+/* 主体商品区域样式 */
+#main {
+  padding: .1rem;
+  /* 为了把main里面的内容往上挤不要和底部重叠在一起 */
+  padding-bottom: .6rem;
+  background-color: #eee;
+  /* 京东秒杀 */
+  /* 京东超市 */
+}
+#main .seckill {
+  background-color: #fff;
+  box-shadow: 0px 0px 1px #666;
+}
+#main .seckill .title {
+  display: flex;
+  /* 设置内容2端对齐 */
+  justify-content: space-between;
+  line-height: .3rem;
+}
+#main .seckill .title .left {
+  display: flex;
+}
+#main .seckill .title .left img {
+  width: .2rem;
+  height: .25rem;
+  margin-left: .05rem;
+}
+#main .seckill .title .left > span {
+  color: #de181b;
+  margin-left: .05rem;
+}
+#main .seckill .title .left .down-time {
+  margin-left: .05rem;
+  /* 排除选择器 排除第三 第六个元素 */
+}
+#main .seckill .title .left .down-time span:not(:nth-child(3n)) {
+  display: inline-block;
+  width: .15rem;
+  height: .15rem;
+  text-align: center;
+  line-height: .15rem;
+  color: #fff;
+  background-color: #000;
+}
+#main .seckill .title .more {
+  margin-right: .1rem;
+}
+#main .seckill .content ul {
+  display: flex;
+}
+#main .seckill .content ul li {
+  flex: 1;
+  /* 选择第二个li及以后的li设置左边框 */
+}
+#main .seckill .content ul li a {
+  display: block;
+  text-align: center;
+}
+#main .seckill .content ul li a img {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+#main .seckill .content ul li a p {
+  font-size: .12rem;
+}
+#main .seckill .content ul li a p span {
+  color: #de181b;
+}
+#main .seckill .content ul li a p del {
+  color: #ccc;
+}
+#main .seckill .content ul li ~ li {
+  border-left: 1px solid #ccc;
+}
+#main .jd-market {
+  background-color: #fff;
+  box-shadow: 0px 0px 1px #666;
+  margin-top: .1rem;
+}
+#main .jd-market .title {
+  border-bottom: 1px solid #ccc;
+}
+#main .jd-market .title h4 {
+  line-height: .3rem;
+  padding-left: .3rem;
+  font-weight: normal;
+  position: relative;
+}
+#main .jd-market .title h4::before {
+  content: '';
+  position: absolute;
+  width: .04rem;
+  height: .14rem;
+  background-color: #de181b;
+  top: .08rem;
+  left: .2rem;
+}
+#main .jd-market .content {
+  display: flex;
+}
+#main .jd-market .content > div {
+  flex: 1;
+}
+#main .jd-market .content > div a {
+  display: block;
+}
+#main .jd-market .content > div a img {
+  width: 100%;
+}

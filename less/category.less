@@ -1,0 +1,102 @@
+@import 'base.less';
+#header {
+    // 单独设置分类页面的头部背景色
+    background-color: #eee;
+}
+
+/* 为了让main容器居中 不要和头部底部重叠在一起 给body设置一个上下padding 吧main挤到中间来 */
+body {
+    padding: .45rem 0 0.5rem;
+    height: 100vh;
+}
+
+/* 主体分类 */
+
+#main {
+    display: flex;
+    /* main继承body的高度 */
+    height: 100%;
+    .category-left {
+        /* 继承main的高度 */
+        width: .85rem;
+        height: 100%;
+        .swiper-container {
+            /* 继承left的高度 */
+            /* 设置容器高度和body 和html一样 和屏幕一样 */
+            height: 100%;
+            .swiper-slide {
+                /* 设置子盒子的高度 由内容撑开 默认100% 不需要这个100% 让内容撑开 */
+                /* 之前兼容轮播图效果 轮播图高度和父元素一样 写死100%高度 但是这是内容滚动不需要这个高度100% 覆盖成auto */
+                height: auto;
+            }
+        }
+        ul {
+            li {
+                &.active {
+                    a {
+                        background-color: #fff;
+                        color: @main-color;
+                    }
+                }
+                a {
+                    display: block;
+                    height: .45rem;
+                    line-height: .45rem;
+                    text-align: center;
+                    background-color: #eee;
+                }
+            }
+        }
+    }
+    .category-right {
+        flex: 1;
+        padding: .07rem;
+        /* 继承main的高度 */
+        height: 100%;
+        .swiper-container {
+            /* 继承right的高度 */
+            /* 设置容器高度和body 和html一样 和屏幕一样 */
+            height: 100%;
+            .swiper-slide {
+                /* 设置子盒子的高度 由内容撑开 默认100% 不需要这个100% 让内容撑开 */
+                /* 之前兼容轮播图效果 轮播图高度和父元素一样 写死100%高度 但是这是内容滚动不需要这个高度100% 覆盖成auto */
+                height: auto;
+            }
+        }
+        /* 设置滚动条的样式 */
+        .swiper-container-vertical > .swiper-scrollbar{
+            width: 3px;
+            background-color: rgba(255,0,0,0.2);
+            right: 0px;
+            .swiper-scrollbar-drag{
+                background-color: hotpink;
+            }
+        }
+        .banner {
+            img {
+                width: 100%;
+            }
+        }
+        h4 {
+            line-height: .4rem;
+        }
+        ul {
+            display: flex;
+            /* 设置flex换行 */
+            flex-wrap: wrap;
+            li {
+                width: 33.33%;
+                a {
+                    display: block;
+                    text-align: center;
+                    img {
+                        width: 0.7rem;
+                    }
+                    span {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

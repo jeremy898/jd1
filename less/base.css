@@ -1,0 +1,147 @@
+/* 定义一些公共的全局变量 */
+* {
+  margin: 0;
+  padding: 0;
+  /* 在移动端给所有元素设置box-sizing:border-box; 让盒模型计算方式固定为 设置的宽高 不会被padding或者border影响 */
+  box-sizing: border-box;
+  /* 在移动端去除一些按住高亮的背景色 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* 禁止页面文字选择 ，此属性不继承，一般加在body上规定整个body的文字都不会自动调整 */
+  -webkit-user-select: none;
+  /* 禁止文字自动调整大小(默认情况下旋转设备的时候文字大小会发生变化)，此属性也不继承，一般加在body上规定整个body的文字都不会自动调整  */
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-size: .14rem;
+  font-family: '微软雅黑';
+}
+a {
+  text-decoration: none;
+  /* 直接在默认a样式设置为666 */
+  color: #666;
+}
+li {
+  list-style: none;
+}
+input {
+  /* input内外边框都去掉 */
+  border: 0;
+  outline: 0;
+}
+img {
+  /* 设置图标标签对齐方式 中线对齐 解决图片距离块级元素3px间距 */
+  vertical-align: middle;
+}
+input,
+button {
+  /* 消除输入框和按钮的原生外观，在iOS上加上这个属性才能给按钮和输入框自定义样式  */
+  -webkit-appearance: none;
+  /* 去掉IOS移除原生控件样式 */
+  -webkit-touch-callout: none;
+}
+/* 写一些公共的样式 */
+.bt {
+  border-top: 1px solid #ccc;
+}
+.bb {
+  border-bottom: 1px solid #ccc;
+}
+.bl {
+  border-left: 1px solid #ccc;
+}
+.br {
+  border-right: 1px solid #ccc;
+}
+/* 公共头部区域的样式 */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* 如果元素和屏幕一样宽  或者 一样 高可以使用vw单位 */
+  width: 100vw;
+  display: flex;
+  z-index: 999;
+  height: .45rem;
+}
+#header [class^="icon-"] {
+  background-image: url(../images/sprites.png);
+  /* 注意按照背景图的原图宽高 除以2来写  原图是400*400 设置为 200 * 200 */
+  background-size: 2rem 2rem;
+  /* 调整背景图定位原点 参照盒模型的哪个区域 */
+  background-origin: content-box;
+  /* 设置背景图的裁切 裁切掉处了 内容区域以外的背景图 */
+  background-clip: content-box;
+}
+#header .icon-logo {
+  display: block;
+  width: 0.8rem;
+  height: 0.45rem;
+  padding: 0.1rem 0.11rem;
+  /* 背景图的定位也是要 除以2来写 0  216px 变成 -108px */
+  background-position: 0 -1.08rem;
+}
+#header .icon-back {
+  width: .4rem;
+  height: .45rem;
+  padding: .125rem .1rem;
+  background-position: -0.2rem 0;
+}
+#header .icon-menu {
+  width: .4rem;
+  height: .45rem;
+  padding: .125rem .1rem;
+  background-position: -0.6rem 0;
+}
+#header form {
+  flex: 1;
+  padding-top: 0.05rem;
+  position: relative;
+}
+#header form .icon-search {
+  position: absolute;
+  left: 0.07rem;
+  top: 0.12rem;
+  width: 0.2rem;
+  height: 0.2rem;
+  background-image: url(../images/sprites.png);
+  background-size: 2rem 2rem;
+  background-position: -0.58rem -1.08rem;
+}
+#header form input {
+  width: 100%;
+  height: 0.35rem;
+  border-radius: 0.175rem;
+  padding-left: 0.3rem;
+  font-size: 0.14rem;
+}
+#header .login {
+  width: 0.5rem;
+  height: 0.45rem;
+  line-height: 0.45rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.14rem;
+}
+/* 底部区域的公共样式 */
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #fff;
+}
+#footer ul {
+  display: flex;
+}
+#footer ul li {
+  flex: 1;
+}
+#footer ul li a {
+  display: block;
+  text-align: center;
+}
+#footer ul li a img {
+  width: .65rem;
+  height: .5rem;
+}

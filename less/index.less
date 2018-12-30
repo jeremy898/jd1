@@ -1,0 +1,151 @@
+/* 在主页index.less中 去引入公共样式base.less */
+@import 'base.less';
+
+
+
+/* 轮播图样式 */
+#slide{
+    img{
+        /* 轮播图全屏的和屏幕宽度有关可以使用vw */
+        width: 100vw;
+    }
+    .swiper-pagination-bullet-active{
+        background-color: #fff;
+    }
+}
+
+/* 导航条区域的样式 */
+#nav{
+    padding: .1rem 0;
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        li{
+            width: 25%;
+            a{
+                display: block;
+                text-align: center;                
+                img{
+                    width: .4rem;
+                    height: .4rem;
+                }
+                p{
+                    margin: .05rem 0;
+                }
+            }
+        }
+    }
+}
+
+/* 主体商品区域样式 */
+#main{
+    padding: .1rem;
+    /* 为了把main里面的内容往上挤不要和底部重叠在一起 */
+    padding-bottom: .6rem;
+    background-color: #eee;
+    /* 京东秒杀 */
+    .seckill{
+        background-color: #fff;
+        box-shadow: 0px 0px 1px #666;
+        .title{
+            display: flex;
+            /* 设置内容2端对齐 */
+            justify-content: space-between;
+            line-height: .3rem;
+            .left{
+                display: flex;
+                img{
+                    width: .2rem;
+                    height: .25rem;
+                    margin-left: .05rem;
+                }
+                > span{
+                    color:@main-color;
+                    margin-left: .05rem;
+                }
+                .down-time{
+                    margin-left: .05rem;
+                    /* 排除选择器 排除第三 第六个元素 */
+                    span:not(:nth-child(3n)){                       
+                        display: inline-block;
+                        width: .15rem;
+                        height: .15rem;
+                        text-align: center;
+                        line-height: .15rem;                       
+                        color:#fff;
+                        background-color: #000;
+                    }
+                }
+            }
+            .more{
+                margin-right: .1rem;
+            }
+        }
+        .content{
+            ul{
+                display: flex;
+                li{
+                    flex: 1;
+                    a{
+                        display: block;
+                        text-align: center;
+                        img{
+                            width: 1.1rem;
+                            height: 1.1rem;
+                        }
+                        p{
+                            font-size: .12rem;
+                            span{
+                                color:@main-color;
+                            }
+                            del{
+                                color:#ccc;
+                            }
+                        }
+                    }
+                    /* 选择第二个li及以后的li设置左边框 */
+                    & ~ li{
+                        border-left: 1px solid #ccc;
+                    }
+                }
+            }
+        }
+    }
+    /* 京东超市 */
+    .jd-market{
+        background-color: #fff;
+        box-shadow: 0px 0px 1px #666;
+        margin-top: .1rem;
+        .title{
+            border-bottom: 1px solid #ccc;
+            h4{
+                line-height: .3rem;
+                padding-left: .3rem;
+                font-weight: normal;
+                position: relative;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    width: .04rem;
+                    height: .14rem;
+                    background-color: @main-color;
+                    top: .08rem;
+                    left: .2rem;
+                }
+            }
+        }
+        .content{
+            display: flex;
+            >div{
+                flex: 1;
+                a{
+                    display: block;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
